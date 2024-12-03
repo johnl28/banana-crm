@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Migrations
+namespace BananaApi.Migrations
 {
     [DbContext(typeof(ContactContext))]
     partial class ContactContextModelSnapshot : ModelSnapshot

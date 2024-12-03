@@ -1,4 +1,5 @@
 using BananaApi.Contexts;
+using BananaApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -15,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContactContext>(options => 
     options.UseMySql(builder.Configuration.GetConnectionString("MysqlServer"), 
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MysqlServer"))));
+
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
 var app = builder.Build();
 

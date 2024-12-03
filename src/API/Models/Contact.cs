@@ -11,9 +11,11 @@ public class ContactDto {
   public string? LastName { get; set; }
 
   [Required]
+  [EmailAddress]
   [StringLength(100)]
   public string? Email { get; set; }
 
+  [Phone]
   [StringLength(15)]
   public string? Phone { get; set; }
 
@@ -33,9 +35,11 @@ public class Contact {
   public string? LastName { get; set; }
 
   [Required]
+  [EmailAddress]
   [StringLength(100)]
   public string? Email { get; set; }
 
+  [Phone]
   [StringLength(15)]
   public string? Phone { get; set; }
 
