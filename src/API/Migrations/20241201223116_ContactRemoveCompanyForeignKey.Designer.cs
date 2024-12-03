@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Migrations
+namespace BananaApi.Migrations
 {
     [DbContext(typeof(ContactContext))]
     [Migration("20241201223116_ContactRemoveCompanyForeignKey")]

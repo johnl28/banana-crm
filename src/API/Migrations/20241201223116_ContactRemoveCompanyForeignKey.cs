@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace API.Migrations
+namespace BananaApi.Migrations
 {
     /// <inheritdoc />
     public partial class ContactRemoveCompanyForeignKey : Migration

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace API.Migrations
+namespace BananaApi.Migrations
 {
     /// <inheritdoc />
     public partial class CreateContactTable : Migration
