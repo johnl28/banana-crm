@@ -19,15 +19,19 @@ builder.Services.AddDbContext<ContactContext>(options =>
 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy  =>
-                      {
-                          policy.WithOrigins("http://localhost:5175");
-                          policy.AllowAnyHeader();
-                      });
-});
+if(builder.Environment.IsDevelopment()) {
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(name: MyAllowSpecificOrigins,
+                        policy  =>
+                        {
+                            policy.AllowAnyOrigin();
+                            policy.AllowAnyHeader();
+                        });
+    });
+}
+
+
 
 var app = builder.Build();
 

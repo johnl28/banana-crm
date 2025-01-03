@@ -1,6 +1,6 @@
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 using BananaApi.Contexts;
 using BananaApi.Models;
 using BananaApi.Repositories;
@@ -54,7 +54,8 @@ public class ContactController: ControllerBase {
       FirstName = contactDto.FirstName,
       LastName = contactDto.LastName,
       Email = contactDto.Email,
-    });
+      Created = DateTime.Now
+    }); 
 
     return Ok(contactDto);
   }

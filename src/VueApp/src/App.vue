@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 
 import TheNavbar from './components/Static/TheNavbar.vue'
 import UserStatus from './components/UserStatus.vue';
+import TheAlert from './components/Static/TheAlert.vue';
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import UserStatus from './components/UserStatus.vue';
   </header>
 
   <main>
+    <TheAlert></TheAlert>
     <RouterView />
   </main>
 
@@ -32,7 +34,8 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 26px;
+  flex: 1;
 }
 
 </style>

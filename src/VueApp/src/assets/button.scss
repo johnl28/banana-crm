@@ -1,0 +1,38 @@
+
+$buttonPadding: 8px;
+$buttonRadius: 4px;
+
+
+
+button {
+  box-shadow: none;
+  padding: $buttonPadding;
+  padding-inline: 16px;
+  border-radius: $buttonRadius;
+  font-weight: 500;
+  outline: none;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  border: solid 1px var(--color-border);
+  transition-duration: .3s;
+  background-color: var(--color-background);
+
+
+  &:hover {
+    background-color: var(--color-background-mute);
+  }
+}
+
+
+
+.btn-primary {
+  background-color: var(--color-theme);
+  color: var(--color-background);
+
+  &:hover {
+    outline: solid 1px red;
+  }
+}
+
+

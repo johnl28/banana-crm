@@ -21,6 +21,7 @@ public class ContactDto {
 
   [MaxLength(200)]
   public string? Note { get; set; }
+
 }
 
 public class Contact {
@@ -45,6 +46,9 @@ public class Contact {
 
   [MaxLength(200)]
   public string? Note { get; set; }
+
+  [Required]
+  public DateTime Created { get; set; }
 
 }
 

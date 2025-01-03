@@ -1,12 +1,19 @@
 
 
+interface NewContact {
+  firstName: string,
+  lastName: string,
+  email: string,
+}
+
 interface Contact {
   id: number
-  firstname: string
-  lastname: string
+  firstName: string
+  lastName: string
   email: string
   phone: string
   note: string
+  created: Date
 }
 
 

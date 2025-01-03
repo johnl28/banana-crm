@@ -28,7 +28,6 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
   margin-top: 16px;
 }
 
@@ -38,8 +37,9 @@ nav a {
   font-weight: 500;
   color: var(--color-link);
   text-decoration: none;
-  padding: 8px;
+  padding: 12px;
   border-radius: 5px;
+  transition-duration: 0.1s;
   // border: solid 1px var(--color-border);
 }
 
