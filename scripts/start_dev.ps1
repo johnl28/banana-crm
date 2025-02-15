@@ -1,5 +1,5 @@
 
-docker container start b76baf51ce1365388fa788fd5fcdad6a3a6de23031a0bd67775f2059f76f0806
+docker container start mysql_dev
 
 # Start ASP.NET
 wt -w 0 new-tab -p "ASP.NET API" -d ./src/API powershell -noExit "dotnet watch"
