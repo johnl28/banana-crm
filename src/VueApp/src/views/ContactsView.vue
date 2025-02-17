@@ -10,8 +10,9 @@ import ViewContactModal from '@/components/Modals/ViewContactModal.vue';
 const contactsStorage = useContactStorage();
 const alertStorage = useAlertStorage();
 
-const newUser = ref<Contact>({} as Contact);
+const newUserForm = ref<Contact>({} as Contact);
 
+const selectedUser = ref<number>(0);
 
 onBeforeMount(() => {
   contactsStorage.initContacts();
@@ -24,11 +25,11 @@ onBeforeMount(() => {
   <div>
     <div class="box">
 
-      <input v-model="newUser.firstName" placeholder="First Name" type="text" />
-      <input v-model="newUser.lastName" placeholder="Last Name" type="text" />
-      <input v-model="newUser.email" placeholder="Email" type="text" />
+      <input v-model="newUserForm.firstName" placeholder="First Name" type="text" />
+      <input v-model="newUserForm.lastName" placeholder="Last Name" type="text" />
+      <input v-model="newUserForm.email" placeholder="Email" type="text" />
       
-      <button @click="contactsStorage.createContact(newUser)" class="btn-primary">Create</button>
+      <button @click="contactsStorage.createContact(newUserForm)" class="btn-primary">Create</button>
     </div>
 
     <table class="contacts-table">
