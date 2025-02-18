@@ -1,14 +1,47 @@
 <script lang="ts" setup>
+import { useContactStorage } from '@/stores/contactStorage';
+import { onMounted } from 'vue';
+
+const contacts = useContactStorage();
+
+const emits = defineEmits(['OnClose']);
+
+const props = defineProps({
+  showModal: { 
+    type: Boolean,
+    required: true
+  },
+
+  contactId: {
+    type: Number,
+    required: true
+  }
+
+});
+
+onMounted(() => {
+  //contacts.getContact(props.contactId);
+});
 
 
+function Close()
+{
+  emits("OnClose");
+}
 
 </script>
 
 
 <template>
-<div class="modal-bg">
+<div class="modal-bg" @click.self="Close" v-if="props.showModal">
   <div class="box-2">
-    
+    <div>
+
+    </div>
+
+    <div>
+
+    </div>
   </div>
 </div>
 </template>

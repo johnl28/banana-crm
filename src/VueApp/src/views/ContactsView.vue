@@ -3,7 +3,6 @@ import { ref, onBeforeMount } from 'vue';
 
 import { useAlertStorage } from '@/stores/alertStorage';
 import { useContactStorage } from '@/stores/contactStorage';
-import { AlertType } from '@/constants';
 import ViewContactModal from '@/components/Modals/ViewContactModal.vue';
 
 
@@ -12,11 +11,21 @@ const alertStorage = useAlertStorage();
 
 const newUserForm = ref<Contact>({} as Contact);
 
-const selectedUser = ref<number>(0);
+const selectedContact = ref<number>(0);
 
 onBeforeMount(() => {
   contactsStorage.initContacts();
 })
+
+function OnCloseModal()
+{
+  selectedContact.value = 0;
+}
+
+function OpenModal(id: number)
+{
+  selectedContact.value = id;
+}
 
 </script>
 
@@ -55,7 +64,7 @@ onBeforeMount(() => {
 
 
       <tbody>
-        <tr v-for="contact, index in contactsStorage.contacts" :key="index">
+        <tr v-for="contact, index in contactsStorage.contacts" :key="index" @click="OpenModal(contact.id)">
           <td>
             {{ contact.id }}
           </td>
@@ -75,7 +84,8 @@ onBeforeMount(() => {
       </tbody>
     </table>
 
-    <ViewContactModal></ViewContactModal>
+    <ViewContactModal @on-close="OnCloseModal" :show-modal="selectedContact != 0" :contact-id="selectedContact">
+    </ViewContactModal>
 
   </div>
 </template>
@@ -91,15 +101,23 @@ onBeforeMount(() => {
   background-color: var(--color-background-mute);
 }
 
+.contacts-table tbody{
+  border-radius: 20px;
+}
+
 .contacts-table td, tr {
   padding: 14px;
   border-bottom: solid 1px var(--color-border);
-  border-radius: 8px;
 
 }
 
 .contacts-table tr {
   margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.contacts-table tr:hover {
+  outline: solid 1px var(--color-theme);
 }
 
 .box {
