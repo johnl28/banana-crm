@@ -26,7 +26,18 @@ export const useContactStorage = defineStore('contacts', () => {
 
   }
 
-  return { contacts, loading, initContacts, createContact }
+  async function getContact(id: number): Promise<number>
+  {
+    loading.value = true;
+
+    const contact = await contactsService.getContact(id);
+
+    loading.value = false;
+
+    return contact.data;
+  }
+
+  return { contacts, loading, initContacts, createContact, getContact }
 })
 
 
